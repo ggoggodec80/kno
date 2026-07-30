@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>byte note — 기술을 읽는 시간</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Nanum+Myeongjo:wght@400;700&display=swap" rel="stylesheet" />
+    <style>
+      :root { --ink:#182018; --muted:#6b746b; --paper:#f6f5f0; --line:#d9dbd3; --lime:#d8ff45; --orange:#ff633d; --blue:#cce6ff; }
+      * { box-sizing:border-box; } body { margin:0; color:var(--ink); background:var(--paper); font-family:'DM Sans', sans-serif; }
+      a { color:inherit; text-decoration:none; } .wrap { max-width:1180px; margin:auto; padding:0 28px; }
+      nav { height:86px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid var(--line); }
+      .logo { font-size:22px; font-weight:700; letter-spacing:-1.3px; } .logo i { color:var(--orange); font-style:normal; }
+      .nav-links { display:flex; gap:28px; color:#4a554b; font-size:14px; font-weight:500; } .nav-links a:hover { text-decoration:underline; }
+      .subscribe { border:1px solid var(--ink); padding:10px 15px; font:500 12px 'DM Mono'; }
+      .eyebrow { color:var(--orange); font:500 12px 'DM Mono'; letter-spacing:.04em; text-transform:uppercase; }
+      .hero { padding:84px 0 62px; display:grid; grid-template-columns:1.4fr .6fr; gap:44px; border-bottom:1px solid var(--line); }
+      h1 { max-width:760px; font-size:clamp(46px,6vw,80px); letter-spacing:-.07em; line-height:.99; margin:18px 0 24px; font-weight:600; }
+      .hero p { max-width:540px; font-size:17px; color:var(--muted); line-height:1.65; margin:0; }
+      .hero-art { align-self:end; position:relative; height:270px; background:var(--lime); overflow:hidden; }
+      .circle { width:210px; height:210px; border:2px solid var(--ink); border-radius:50%; position:absolute; top:30px; left:50px; } .circle:after { content:''; width:87px; height:87px; border-radius:50%; background:var(--orange); position:absolute; top:58px; left:58px; }
+      .code { position:absolute; right:18px; bottom:20px; font:12px 'DM Mono'; line-height:1.7; } .star { font-size:54px; position:absolute; right:24px; top:10px; }
+      .section-head { display:flex; justify-content:space-between; align-items:baseline; padding:28px 0 18px; } h2 { margin:0; font-size:20px; letter-spacing:-.7px; } .all { font:12px 'DM Mono'; border-bottom:1px solid; padding-bottom:3px; }
+      .featured { display:grid; grid-template-columns:1.1fr .9fr; border-top:1px solid var(--ink); border-bottom:1px solid var(--ink); }
+      .feature-image { min-height:365px; padding:28px; background:#293a3a; position:relative; overflow:hidden; color:#dcf7f0; }
+      .feature-image .window { border:1px solid #8fa9a4; padding:13px; font:13px 'DM Mono'; line-height:1.9; position:absolute; inset:45px 36px; } .window b { color:var(--lime); font-weight:500; }
+      .feature-image .orb { position:absolute; width:230px; height:230px; border-radius:50%; background:radial-gradient(circle at 35% 32%,#fff 0 2%,#70e9d8 11%,#154c5a 57%,#071c22 72%); right:-72px; bottom:-89px; opacity:.9; }
+      .feature-copy { padding:44px 46px; display:flex; flex-direction:column; justify-content:center; } .feature-copy h3 { font-family:'Nanum Myeongjo', serif; font-size:clamp(27px,3.1vw,42px); line-height:1.25; letter-spacing:-2px; margin:14px 0 18px; }
+      .meta { color:var(--muted); font:12px 'DM Mono'; } .feature-copy p { font-size:15px; color:var(--muted); line-height:1.65; margin:0 0 25px; }
+      .articles { display:grid; grid-template-columns:repeat(3,1fr); gap:0; border-top:1px solid var(--ink); } .article { padding:25px 27px 28px 0; margin-right:27px; border-right:1px solid var(--line); } .article:last-child { border:0; margin:0; }
+      .tag { display:inline-block; padding:5px 8px; background:var(--blue); font:11px 'DM Mono'; } .article:nth-child(2) .tag { background:#ffe9ab; } .article:nth-child(3) .tag { background:#eadcff; }
+      .article h3 { font-size:22px; letter-spacing:-1px; line-height:1.25; margin:16px 0 32px; } .article .meta { display:flex; justify-content:space-between; }
+      .newsletter { background:var(--ink); color:#f5f7ef; margin-top:70px; } .newsletter .wrap { display:flex; align-items:center; justify-content:space-between; padding-top:52px; padding-bottom:52px; gap:40px; }.newsletter h2 { font-size:30px; letter-spacing:-1.4px; }.newsletter p { color:#aab5aa; margin:8px 0 0; font-size:14px; }.email { display:flex; background:#f5f7ef; color:var(--ink); padding:5px; min-width:350px; }.email input { border:0; background:transparent; outline:0; width:100%; padding:10px; font:13px 'DM Sans'; }.email button { border:0; background:var(--lime); padding:0 17px; font:500 11px 'DM Mono'; cursor:pointer; }
+      footer { padding:25px 0 35px; color:var(--muted); display:flex; justify-content:space-between; font:12px 'DM Mono'; }
+      @media(max-width:720px) { .wrap{padding:0 19px}.nav-links{display:none}.hero{padding:55px 0 35px;display:block}.hero-art{height:180px;margin-top:34px}.featured{display:block}.feature-image{min-height:250px}.feature-copy{padding:32px 0}.articles{display:block}.article{border-right:0;border-bottom:1px solid var(--line);margin:0;padding:25px 0}.newsletter .wrap{display:block}.email{min-width:0;margin-top:25px}footer{display:block;line-height:2}.circle{transform:scale(.7);transform-origin:top left}.star{font-size:36px} }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <nav><a class="logo" href="#">byte<i>.</i>note</a><div class="nav-links"><a href="#articles">Articles</a><a href="#topics">Topics</a><a href="#about">About</a></div><a class="subscribe" href="#newsletter">SUBSCRIBE ↗</a></nav>
+      <main>
+        <section class="hero"><div><span class="eyebrow">Independent technology journal · Seoul</span><h1>기술의 다음 장을<br>함께 읽습니다.</h1><p>AI, 개발 문화, 그리고 디지털 제품이 우리 일상을 바꾸는 순간들을 선명한 언어로 기록합니다.</p></div><div class="hero-art" aria-hidden="true"><div class="star">✦</div><div class="circle"></div><div class="code">{ future:<br>&nbsp;"in progress"<br>}</div></div></section>
+        <section id="articles"><div class="section-head"><h2>Editor's pick</h2><a class="all" href="#">ALL ARTICLES →</a></div><article class="featured"><div class="feature-image"><div class="window">$ train model --context=human<br><br><b>✓</b> learning patterns<br><b>✓</b> reasoning in language<br><b>→</b> what comes next?</div><div class="orb"></div></div><div class="feature-copy"><span class="eyebrow">AI · Deep dive</span><h3>우리는 LLM을 어떻게 이해해야 할까?</h3><p>‘다음 단어 예측기’라는 설명 너머. 거대 언어 모델의 능력과 한계, 그리고 더 나은 질문을 던지는 방법.</p><span class="meta">JUL 28, 2026 · 8 MIN READ</span></div></article></section>
+        <section id="topics"><div class="section-head"><h2>Latest notes</h2><a class="all" href="#">VIEW ARCHIVE →</a></div><div class="articles"><article class="article"><span class="tag">PRODUCT</span><h3>좋은 도구는 생각의 마찰을 줄인다</h3><div class="meta"><span>JUL 22, 2026</span><span>5 MIN</span></div></article><article class="article"><span class="tag">ENGINEERING</span><h3>작은 팀이 기술 부채와 공존하는 법</h3><div class="meta"><span>JUL 16, 2026</span><span>7 MIN</span></div></article><article class="article"><span class="tag">CULTURE</span><h3>AI 시대에 다시 발견하는 ‘깊은 일’</h3><div class="meta"><span>JUL 09, 2026</span><span>6 MIN</span></div></article></div></section>
+      </main>
+    </div>
+    <section class="newsletter" id="newsletter"><div class="wrap"><div><h2>매주 한 편의 좋은 기술 이야기.</h2><p>새 글과 흥미로운 링크를 메일함으로 보내드려요. 언제든 구독을 취소할 수 있습니다.</p></div><form class="email" onsubmit="event.preventDefault(); this.querySelector('button').textContent='THANKS!';"><input type="email" aria-label="이메일 주소" placeholder="your@email.com" required><button>JOIN THE NOTE</button></form></div></section>
+    <div class="wrap"><footer><span>© 2026 byte.note</span><span>Made for curious minds · Instagram · LinkedIn</span></footer></div>
+  </body>
+</html>
